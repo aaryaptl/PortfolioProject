@@ -21,6 +21,9 @@
                     <a href="#" class="nav__logo">Aarya Patel</a>
                 </div>
 
+                <input type="checkbox" id="toggle-dark-mode">
+                <label for="toggle-dark-mode">Dark Mode</label>
+
                 <div class="nav__menu" id="nav-menu">
                     <ul class="nav__list">
                         <li class="nav__item"><a href="#home" class="nav__link active-link">Home</a></li>
@@ -39,6 +42,10 @@
 
         <main class="l-main">
             <!--===== HOME =====-->
+            <!-- <div>
+                <h2>Chat with me!</h2>
+                <iframe width="350" height="430" allow="microphone;" src="https://console.dialogflow.com/api-client/demo/embedded/ac3d18ad-8aca-4762-9405-94df3d3f849e"></iframe>
+            </div>               -->
             <section class="home bd-grid" id="home">
                 <div class="home__data">
                     <h1 class="home__title">Hi,<br>I'am <span class="home__title-color">Aarya Patel</span><br> A Tech Enthusiastic</h1>
@@ -207,9 +214,29 @@
             <p class="footer__copy">&#169; 2025. All rights reserved</p>
         </footer>
         
-        
-
-
+        <script>
+            const toggleSwitch = document.querySelector('#toggle-dark-mode');
+          
+            // Check if theme was previously saved
+            const currentTheme = localStorage.getItem('theme');
+            if(currentTheme) {
+                document.body.classList.add(currentTheme);
+                if(currentTheme === 'dark-mode') {
+                    toggleSwitch.checked = true;
+                }
+            }
+          
+            toggleSwitch.addEventListener('change', function() {
+                if(this.checked) {
+                    document.body.classList.add('dark-mode');
+                    localStorage.setItem('theme', 'dark-mode');
+                } else {
+                    document.body.classList.remove('dark-mode');
+                    localStorage.setItem('theme', 'light-mode');
+                }
+            });
+          </script>
+          
         <!--===== SCROLL REVEAL =====-->
         <script src="https://unpkg.com/scrollreveal"></script>
 

@@ -70,6 +70,23 @@ img {
   display: block;
 }
 
+:root {
+  --background-color: #ffffff;
+  --text-color: #333333;
+}
+
+body.dark-mode {
+  --background-color: #121212;
+  --text-color: #f0f0f0;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s; /* smooth transition */
+}
+
+
 /*===== CLASS CSS ===== */
 .section-title {
   position: relative;
