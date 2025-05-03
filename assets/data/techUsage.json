@@ -1,0 +1,10 @@
+[
+  {
+    "project": "Finance Tracker",
+    "techStack": { "JavaScript": 40, "Node.js": 30, "MongoDB": 30 }
+  },
+  {
+    "project": "Portfolio Website",
+    "techStack": { "HTML": 20, "CSS": 30, "JavaScript": 50 }
+  }
+]

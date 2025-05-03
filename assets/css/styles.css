@@ -86,6 +86,33 @@ body {
   transition: background-color 0.3s, color 0.3s; /* smooth transition */
 }
 
+#dark-mode-badge {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  border-radius: 25px;
+  font-weight: bold;
+  display: none;
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateX(30px);
+}
+
+#dark-mode-badge.active {
+  display: block;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* When dark mode is enabled */
+body.dark-mode #dark-mode-badge {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
 
 /*===== CLASS CSS ===== */
 .section-title {

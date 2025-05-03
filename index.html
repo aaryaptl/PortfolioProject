@@ -40,6 +40,15 @@
             </nav>
         </header>
 
+        <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+
+        <df-messenger
+            project-id="portfolio-bot-project"
+            agent-id="52cf3445-1228-415b-a9d4-2b2a68894496"
+            language-code="en"
+            chat-title="Portfolio Assistant">
+        </df-messenger>
+
         <main class="l-main">
             <!--===== HOME =====-->
             <!-- <div>
@@ -149,7 +158,7 @@
                                 <span class="skills__percentage">85%</span>
                             </div>
                         </div>
-                        
+                        <a href="tech-analytics.html" target="_blank">📊 View Tech Usage Analytics</a>
                     </div>
                     
                     <div>              
@@ -235,7 +244,7 @@
                     localStorage.setItem('theme', 'light-mode');
                 }
             });
-          </script>
+        </script>
           
         <!--===== SCROLL REVEAL =====-->
         <script src="https://unpkg.com/scrollreveal"></script>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Tech Stack Usage</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      padding: 2rem;
+    }
+    canvas {
+      max-width: 600px;
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+  <h1>📊 Tech Stack Usage Analytics</h1>
+  <canvas id="techChart"></canvas>
+
+  <script>
+    async function loadTechData() {
+      const response = await fetch('/assets/data/techUsage.json');
+      const projects = await response.json();
+
+      const totals = {};
+      projects.forEach(({ techStack }) => {
+        for (const tech in techStack) {
+          totals[tech] = (totals[tech] || 0) + techStack[tech];
+        }
+      });
+
+      const labels = Object.keys(totals);
+      const data = Object.values(totals);
+
+      new Chart(document.getElementById('techChart'), {
+        type: 'pie',
+        data: {
+          labels: labels,
+          datasets: [{
+            label: 'Usage (%)',
+            data: data,
+            backgroundColor: [
+              '#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF', '#FF9F40'
+            ],
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: { position: 'bottom' },
+            tooltip: { callbacks: { label: ctx => `${ctx.label}: ${ctx.raw}%` } }
+          }
+        }
+      });
+    }
+
+    loadTechData();
+  </script>
+</body>
+</html>
